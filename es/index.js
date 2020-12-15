@@ -197,6 +197,7 @@ export default function axiosRetry(axios, defaultOptions) {
     const shouldRetry = retryCondition(error) && currentState.retryCount < retries;
 
     if (shouldRetry) {
+      console.error('axiosRetry', error);
       currentState.retryCount += 1;
       const delay = retryDelay(currentState.retryCount, error);
 
